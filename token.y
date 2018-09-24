@@ -405,7 +405,6 @@ instrucao:	PRINT /*printf("\n Vetor de Registradores \n r0 %d \n r1 %d \n r2 %d 
 | CSTOREAO REGISTER VIRGULA REGISTER VIRGULA REGISTER /* Memoria */
 | I2I REGISTER VIRGULA REGISTER 
 {
-	
 	if(labelAtivo==0)
 	{
 		r[$4] = r[$2];
@@ -414,8 +413,7 @@ instrucao:	PRINT /*printf("\n Vetor de Registradores \n r0 %d \n r1 %d \n r2 %d 
 	}
 }
 | C2C REGISTER VIRGULA REGISTER 
-{
-	
+{	
 	if(labelAtivo==0)
 	{
 		r[$4] = r[$2];
@@ -424,8 +422,7 @@ instrucao:	PRINT /*printf("\n Vetor de Registradores \n r0 %d \n r1 %d \n r2 %d 
 	}
 }
 | C2I REGISTER VIRGULA REGISTER 
-{
-	
+{	
 	if(labelAtivo==0)
 	{
 		r[$4] = r[$2];
@@ -434,8 +431,7 @@ instrucao:	PRINT /*printf("\n Vetor de Registradores \n r0 %d \n r1 %d \n r2 %d 
 	}
 }
 | I2C REGISTER VIRGULA REGISTER 
-{
-	
+{	
 	if(labelAtivo==0)
 	{
 		r[$4] = r[$2];
@@ -554,22 +550,45 @@ instrucao:	PRINT /*printf("\n Vetor de Registradores \n r0 %d \n r1 %d \n r2 %d 
 		if(r[$2]==true) 
 		{
 			labelAtual=$4;
+			labelAtivo=true;
 		} 
 		else 
 		{
 			labelAtual=$6;
+			labelAtivo=true;
 		}
 	}
 	else{
 	}
 }
 | CCMP REGISTER VIRGULA REGISTER VIRGULA CC
+{
+
+}
 | CBR_LT CC VIRGULA LABEL VIRGULA LABEL 
+{
+
+}
 | CBR_LE CC VIRGULA LABEL VIRGULA LABEL 
+{
+
+}
 | CBR_EQ CC VIRGULA LABEL VIRGULA LABEL 
+{
+
+}
 | CBR_GE CC VIRGULA LABEL VIRGULA LABEL 
+{
+
+}
 | CBR_GT CC VIRGULA LABEL VIRGULA LABEL 
+{
+
+}
 | CBR_NE CC VIRGULA LABEL VIRGULA LABEL 
+{
+
+}
 | JUMP LABEL 
 {
 	fflush(stdin);
@@ -590,6 +609,9 @@ instrucao:	PRINT /*printf("\n Vetor de Registradores \n r0 %d \n r1 %d \n r2 %d 
 	PC = r[$2];
 } 
 | TBL REGISTER VIRGULA LABEL
+{
+
+}
 | LABEL
 {
 	fflush(stdin);
